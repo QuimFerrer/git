@@ -1,0 +1,45 @@
+Denominaciones del directorio de trabajo :
+workspace espacio de trabako
+work-tree estructura de arbol de trabajo
+codebase  base de codigo
+
+git init 
+transforma un directorio en un directorio de trabajo git
+
+git init --bare
+Un repositorio bare ("pelado", "vacío", "limpio"...) creado con git init --bare es para compartir. Por ejemplo, si un desarrollador está colaborando con un equipo de desarrollo, y necesita un lugar donde compartir los cambios realizados sobre un repositorio, será necesario crear un repositorio bare en un servidor centralizado donde todos los desarrolladores puedan enviar sus cambios (git push).
+Para implementar un repositorio centralizado compartido bare utilizando este esquema, es posible utilizar un servicio como GitHub
+o Bitbucket
+
+Indice o area de cambios (staging area, index)
+Registro de cambios del directorio de trabajo a incluir en el proximo commit
+Si no existen cambios no se incluyen al generar un nuevo commit
+
+git add
+. Registra en el indice TODOS los ficheros nuevos o modificados
+uno.txt dos.txt registra los ficheros uno.txt y dos.txt en el indice
+
+git reset (deshacer un git add)
+. extrae del indice todos los ficheros
+uno.txt dos.txt extrae del indice los ficheros uno.txt y dos.txt
+
+git commit (Asigna un ID unico a cada nuevo commit)
+-m "Descripcion"
+--amend -m "..." modifica el ultimo commit con lo registrado en el indice !Peligroso!
+
+git log --oneline muestra historia de commits (id cortos) de una rama
+
+git status (Muestra estado de los ficheros del proyecto)
+-s formato compacto y cómodo
+
+git dif fichero.prg muestra diferencias con respecto al commit anterior
+
+git mv old new cambia el nombre de un fichero del directorio y del indice
+
+git rm fichero1 fichero2 ... borra fichero del directorio de trabajo y del indice
+
+git rm --cached files forra files del indice, los ficheros pasan de staged a unstracked (no seguidos)
+
+git checkout files Elimina cambios de files que pasan a unmodified (Peligro, los cambios se pierden)
+git . files Elimina TODOS los cambios de files que pasan a unmodified (Peligro, los cambios se pierden)
+
