@@ -6,6 +6,27 @@ codebase  base de codigo
 git init 
 transforma un directorio en un directorio de trabajo git
 
+git init --bare
+Un repositorio bare ("pelado", "vacío", "limpio"...) creado con git init --bare es para compartir. Por ejemplo, si un desarrollador está colaborando con un equipo de desarrollo, y necesita un lugar donde compartir los cambios realizados sobre un repositorio, será necesario crear un repositorio bare en un servidor centralizado donde todos los desarrolladores puedan enviar sus cambios (git push).
+Para implementar un repositorio centralizado compartido bare utilizando este esquema, es posible utilizar un servicio como GitHub
+o Bitbucket
+
+
+La forma més facil de crear un repositori local i vincular-ho a un remot
+------------------------------------------------------------------------
+P.ex. dins de la carpeta del repositori
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/QuimFerrer/<repositori_git>.git
+git push -u origin master
+
+Si el repositori local ja està creat, només es vincula amb el remot
+-------------------------------------------------------------------
+git remote add origin https://github.com/QuimFerrer/<repositori_git>.git
+git push -u origin master
+
+
 Indice o area de cambios (staging area, index)
 Registro de cambios del directorio de trabajo a incluir en el proximo commit
 Si no existen cambios no se incluyen al generar un nuevo commit
@@ -38,7 +59,3 @@ git rm --cached files forra files del indice, los ficheros pasan de staged a uns
 git checkout files Elimina cambios de files que pasan a unmodified (Peligro, los cambios se pierden)
 git . files Elimina TODOS los cambios de files que pasan a unmodified (Peligro, los cambios se pierden)
 
-git init --bare
-Un repositorio bare ("pelado", "vacío", "limpio"...) creado con git init --bare es para compartir. Por ejemplo, si un desarrollador está colaborando con un equipo de desarrollo, y necesita un lugar donde compartir los cambios realizados sobre un repositorio, será necesario crear un repositorio bare en un servidor centralizado donde todos los desarrolladores puedan enviar sus cambios (git push).
-Para implementar un repositorio centralizado compartido bare utilizando este esquema, es posible utilizar un servicio como GitHub
-o Bitbucket
